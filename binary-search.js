@@ -1,4 +1,13 @@
-function binarySearch(array, target){
+// 선형 검색
+function linearSearch(array, value) {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === value) return i;
+  }
+  return '찾는 값이 없습니다.';
+}
+
+// 이진 검색
+function binarySearch(array, target) {
     // 1. 이진 검색의 전제 조건인 정렬된 배열을 만든다.
     array = array.sort(function(a,b){
         return a - b;
@@ -39,13 +48,19 @@ function binarySearch(array, target){
 
 const example = [1, 3, 5, 7, 9, 11, 13];
 const example2 = [3, 6, 1, 2, 4, 7, 0, 5, 9, 4];
+
+// 선형 검색 테스트
+console.log(linearSearch(example, 1)); // 0
+console.log(linearSearch(example, 13)); // 6
+console.log(linearSearch(example, 2)); // 찾는 값이  없습니다.
+console.log(linearSearch(example2, 0)); // 0
+console.log(linearSearch(example2, 9)); // 9
+console.log(linearSearch(example2, 13)); // 찾는 값이 없습니다.
+
+// 이진 검색 테스트
 console.log(binarySearch(example, 1)) // 0
+console.log(binarySearch(example, 13)) // 6
 console.log(binarySearch(example, 2)) // 찾는 값이 없습니다.
-console.log(binarySearch(example, 3)) // 1
-console.log(binarySearch(example, 4)) // 찾는 값이 없습니다.
-console.log(binarySearch(example, 5)) // 2
-console.log(binarySearch(example2, 6)) // 7
-console.log(binarySearch(example2, 7)) // 8
-console.log(binarySearch(example2, 8)) // 찾는 값이 없습니다.
+console.log(binarySearch(example2, 0)) // 0
 console.log(binarySearch(example2, 9)) // 9
-console.log(binarySearch(example2, 10)) // 찾는 값이 없습니다.
+console.log(binarySearch(example2, 13)) // 찾는 값이 없습니다.
