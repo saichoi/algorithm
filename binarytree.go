@@ -24,7 +24,7 @@ func main() {
 	n7 = Node{ Data: 89 }
 
 	tree := BianryTree{Root: &n1}
-	fmt.Println(tree.Search(33))
+	//fmt.Println(tree.Search(33))
 	//fmt.Println(tree.Insert(77))
 	//fmt.Println(tree.Search(77))
 	//fmt.Println(tree.Insert(33))
@@ -32,6 +32,8 @@ func main() {
 	//tree2 := BianryTree{}
 	//fmt.Println(tree2.Insert(45))
 	//fmt.Println(tree2.Root.Data)
+	//Print(tree.Root)
+	PrintReverse(tree.Root)
 }
 
 func (b *BianryTree) Search(target int) (*Node, *Node) {
@@ -198,3 +200,27 @@ func (b *BianryTree) Delete(target int) error {
 	return nil
 }
 
+func Print(n *Node) {
+
+	if n.Left != nil {
+		Print(n.Left)
+	}
+	fmt.Println(n.Data)
+
+	if n.Right != nil {
+		Print(n.Right)
+	}
+}
+
+func PrintReverse(n *Node){
+
+	if n.Right != nil {
+		PrintReverse(n.Right)
+	}
+	fmt.Println(n.Data)
+
+	if n.Left != nil {
+		PrintReverse(n.Left)
+
+	}
+}
